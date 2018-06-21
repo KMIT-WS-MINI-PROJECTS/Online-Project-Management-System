@@ -1,0 +1,34 @@
+databasename--miniproject.
+use miniproject;
+
+create table dlogin(uname varchar(20) primary key,password varchar(20));
+insert into dlogin values('bhuvanesh@gmail.com','bhuvanesh');
+insert into dlogin values('saikumar@gmail.com','saikumar');
+insert into dlogin values('vikram@gmail.com','vikram');
+
+create table ddetails(uname varchar(30),dname varchar(20),address varchar(40),foreign key(uname) references dlogin(uname));
+insert into ddetails values('bhuvanesh@gmail.com','bhuvanesh','reddy hostel,abids');
+insert into ddetails values('saikumar@gmail.com','saikumar','jvr velama hostel,himayathnagar');
+insert into ddetails values('vikram@gmail.com','vikram','beside golden bawarchi,tarnaka');
+
+create table tldetails(uname varchar(20),tlname varchar(20),address varchar(40),foreign key(uname) references tllogin(uname));
+insert into tldetails values('abhinav@gmail.com','abhinav','carbon,near ecil,hyderabad');
+insert into tldetails values('chetan@gmail.com','chetan','chekripuram,near ecil,hyderabad');
+
+create table tllogin(uname varchar(20) primary key,password varchar(20));
+insert into tllogin values('abhinav@gmail.com','abhinav');
+insert into tllogin values('chetan@gmail.com','chetan');
+
+create table pmlogin(uname varchar(30) primary key,password varchar(20));
+insert into pmlogin values('srikanthreddy@gmail.com','srikanthreddy');
+insert into pmlogin values('naagireddy@gmail.com','naagireddy');
+
+create table pmdetails(uname varchar(30),pname varchar(20),address varchar(40),foreign key(uname) references pmlogin(uname));
+insert into pmdetails values('srikanthreddy@gmail.com','srikanth','kmit,narayanaguda,hyderabad,500029');
+insert into pmdetails values('naagireddy@gmail.com','naagireddy','ngit,uppal,hyderabad,500030');
+
+create table statuscheck(aid int not null auto_increment primary key,aname varchar(30),status varchar(30));
+create table actiondetails(aid int not null auto_increment primary key,aname varchar(30),dname varchar(30));
+create table checkrole(id int not null auto_increment primary key,name varchar(30),role varchar(30));
+
+create table storetlwithpr(tlname varchar(20),prname varchar(20));
